@@ -7,115 +7,63 @@
     <title>My Bucket List</title>
     <link rel="stylesheet" href="bucketlist.css">
     <script src="https://kit.fontawesome.com/a48451008c.js" crossorigin="anonymous"></script>
+    <style>
+        /* Styles for Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #cf87f8;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            visibility: hidden;  /* Hidden initially */
+            opacity: 0;
+            transition: visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
+        }
+    </style>
 </head>
 
 <body>
+
     <div style="text-align: center;">
         <i class="fa-solid fa-bucket" style="color: #cf87f8; margin-right: 10px; font-size: 30px;"></i>
         <h1 style="display: inline-block; margin: 0;">My Bucket List</h1>
         <i class="fa-solid fa-bucket" style="color: #cf87f8; margin-right: 10px; font-size: 30px;"></i>
     </div>
 
-    <nav class="nav">
-        <ul>
-            <li><a href="https://ronix014.github.io/landing-page/landing%20page.html">Home</a></li>
-            <li><a href="https://ronix014.github.io/biography/biography.html">Biography</a></li>
-            <li><a href="https://ronix014.github.io/skills/skills.html#top">Skills</a></li>
-            <li><a href="https://ronix014.github.io/resume/resume.html">Resume</a></li>
-            <li><a href="https://ronix014.github.io/photo-gallery/photo%20gallery.html">Photo Gallery</a></li>
-            <li><a href="https://ronix014.github.io/beats/beats.html">Beats Compilation</a></li>
-            <li><a href="https://ronix014.github.io/tvshows/tvshows.html">My Favorite TV Shows</a></li>
-            <li><a href="https://ronix014.github.io/films/films.html#top">My Favorite Films</a></li>
-            <li><a href="https://ronix014.github.io/dream-places/dreamplaces.html">My Dream Places to Visit</a></li>
-            <li class="active"><a href="https://ronix014.github.io/bucket-list/bucketlist.html">My Bucket List</a></li>
-        </ul>
-    </nav>
-
-    <section class="bucket-list">
-        <h2>Things I Want to Achieve</h2>
-        <div class="grid-container">
-            <div class="item">
-                <a href="graduate.jpg" target="_blank">
-                    <img src="graduate.jpg" alt="Graduation">
-                </a>
-                <h3>Graduate College</h3>
-                <p>Earn my degree and move forward to a bright future.</p>
-            </div>
-            <div class="item">
-                <a href="job.jpg" target="_blank">
-                    <img src="job.jpg" alt="Job">
-                </a>
-                <h3>Find a Job I Love</h3>
-                <p>Secure a job that matches my skills and interests.</p>
-            </div>
-            <div class="item">
-                <a href="firstcar.jpg" target="_blank">
-                    <img src="firstcar.jpg" alt="First Car">
-                </a>
-                <h3>Buy My First Car</h3>
-                <p>Own my first car and enjoy the freedom of driving.</p>
-            </div>
-            <div class="item">
-                <a href="philippines.jpg" target="_blank">
-                    <img src="philippines.jpg" alt="Travel in the Philippines">
-                </a>
-                <h3>Travel the Philippines</h3>
-                <p>Explore the beauty of my country and its hidden gems.</p>
-            </div>
-            <div class="item">
-                <a href="land.jpg" target="_blank">
-                    <img src="land.jpg" alt="Buy Land">
-                </a>
-                <h3>Buy Land Near Naic, Cavite</h3>
-                <p>Purchase land and build my dream house.</p>
-            </div>
-            <div class="item">
-                <a href="jdm.jpg" target="_blank">
-                    <img src="jdm.jpg" alt="JDM Cars">
-                </a>
-                <h3>Collect JDM Cars</h3>
-                <p>Build a collection of my favorite Japanese cars.</p>
-            </div>
-            <div class="item">
-                <a href="japan.jpg" target="_blank">
-                    <img src="japan.jpg" alt="Visit Japan">
-                </a>
-                <h3>Visit Japan</h3>
-                <p>Experience Japanese culture and the car scene.</p>
-            </div>
-            <div class="item">
-                <a href="daikoku.jpg" target="_blank">
-                    <img src="daikoku.jpg" alt="Daikoku PA">
-                </a>
-                <h3>Daikoku PA Car Scene</h3>
-                <p>Witness Japan’s famous car culture firsthand.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Back to Top Button -->
     <button id="backToTop">Back to Top</button>
 
-    <footer>
-        <p>&copy; 2025 My Bucket List</p>
-    </footer>
-
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             let backToTopButton = document.getElementById("backToTop");
 
-            window.addEventListener("scroll", function() {
+            window.addEventListener("scroll", function () {
                 if (window.scrollY > 300) {
-                    backToTopButton.style.display = "block"; // Show button
+                    backToTopButton.style.visibility = "visible";
+                    backToTopButton.style.opacity = "1";
+                    backToTopButton.style.transitionDelay = "0s";  // Ensure instant visibility
                 } else {
-                    backToTopButton.style.display = "none"; // Hide button
+                    backToTopButton.style.opacity = "0";
+                    backToTopButton.style.transitionDelay = "0.3s"; // Delay hiding
+                    setTimeout(() => {
+                        if (window.scrollY <= 300) {
+                            backToTopButton.style.visibility = "hidden";
+                        }
+                    }, 300);
                 }
             });
 
-            backToTopButton.addEventListener("click", function() {
+            backToTopButton.addEventListener("click", function () {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
+
 </body>
 </html>
