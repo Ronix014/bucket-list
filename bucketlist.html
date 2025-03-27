@@ -15,7 +15,8 @@
         <h1 style="display: inline-block; margin: 0;">My Bucket List</h1>
         <i class="fa-solid fa-bucket" style="color: #cf87f8; margin-right: 10px; font-size: 30px;"></i>
     </div>
-<nav class="nav">
+
+    <nav class="nav">
         <ul>
             <li><a href="https://ronix014.github.io/landing-page/landing%20page.html">Home</a></li>
             <li><a href="https://ronix014.github.io/biography/biography.html">Biography</a></li>
@@ -91,10 +92,30 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Back to Top Button -->
+    <button id="backToTop">Back to Top</button>
 
     <footer>
         <p>&copy; 2025 My Bucket List</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let backToTopButton = document.getElementById("backToTop");
+
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = "block"; // Show button
+                } else {
+                    backToTopButton.style.display = "none"; // Hide button
+                }
+            });
+
+            backToTopButton.addEventListener("click", function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
