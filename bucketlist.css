@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     color: #4b0082;
     text-transform: uppercase;
     text-align: center;
@@ -51,4 +51,83 @@ h2, p, .nav a, h3 {
     background-color: #6a0dad;
     border-radius: 5px;
     color: #1de9df;
+}
+
+.bucket-list {
+    font-size: 18px; /* Increase font size */
+    font-family: sans-serif; /* Keep the font style */
+    padding: 40px 10px;
+}
+
+.bucket-list h2 {
+    font-size: 28px; /* Make the heading bigger */
+    font-weight: bold;
+    text-align: center;
+}
+
+.bucket-list h3 {
+    font-size: 22px; /* Increase subheading size */
+    font-weight: bold;
+}
+
+.bucket-list p {
+    font-size: 16px; /* Adjust paragraph text */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.item {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+h3 {
+    margin: 10px 0 5px;
+    color: #4b0082;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: #4b0082;
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
